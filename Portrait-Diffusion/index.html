@@ -43,40 +43,33 @@
 <body>
     <div class="section hero nerf-_v2">
         <div class="container-2 nerf_header_v2 w-container">
-            <h1 class="nerf_title_v2">Towards High-Fidelity 3D Portrait Generation with Rich Details \\by Cross-View Prior-Aware Diffusion</h1>
+            <h1 class="nerf_title_v2">Towards High-Fidelity 3D Portrait Generation with Rich Details by Cross-View Prior-Aware Diffusion</h1>
             <!-- <div class="nerf_subheader_v2">ICLR 2024</div> -->
             <div class="nerf_subheader_v2">
                 <div>
-                    <a href="https://mrtornado24.github.io/" target="_blank" class="nerf_authors_v2">Jingxiang Sun<span
-                            class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
-                    <a href="https://bo-zhang.me/" target="_blank" class="nerf_authors_v2">Bo Zhang<span
-                            class="text-span_nerf"></span></a><sup> 3</sup>,&nbsp;&nbsp;
-                    <a href="https://dsaurus.github.io/saurus/" target="_blank" class="nerf_authors_v2">Ruizhi Shao<span
-                            class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
-                    <a href="https://lizhenwangt.github.io/" target="_blank" class="nerf_authors_v2">Lizhen Wang<span
-                        class="text-span_nerf"></span></a><sup> 1</sup>,&nbsp;&nbsp;
-                    <a href="https://github.com/StevenLiuWen" target="_blank" class="nerf_authors_v2">Wen Liu<span
-                        class="text-span_nerf"></span></a><sup> 2</sup>,&nbsp;&nbsp;
-                    <a href="https://zdaxie.github.io/" target="_blank" class="nerf_authors_v2">Zhenda Xie<span
-                        class="text-span_nerf"></span></a><sup> 2</sup>,&nbsp;&nbsp;
-                    <a href="https://liuyebin.com/" target="_blank" class="nerf_authors_v2">Yebin Liu<span
-                            class="text-span_nerf"></span></a><sup> 1</sup>
+					Haoran Wei<sup> 1</sup>,&nbsp;&nbsp;  
+					Wencheng Han<sup> 1</sup>,&nbsp;&nbsp;  
+					Xingping Dong<sup> 2</sup>,&nbsp;&nbsp;  
+					Jianbing Shen<sup> 1</sup>,&nbsp;&nbsp;  
                 </div>
                 <div>
-                    <h1 class="nerf_affiliation_v2"><sup>1 </sup>Tsinghua University</h1>,
-                    <h1 class="nerf_affiliation_v2"><sup>2 </sup>DeepSeek AI</h1>,
-                    <h1 class="nerf_affiliation_v2"><sup>3 </sup>Independent Researcher</h1>
+                    <h1 class="nerf_affiliation_v2"><sup>1 </sup>Unversity of Macao</h1>,
+                    <h1 class="nerf_affiliation_v2"><sup>2 </sup>Wuhan Unversity</h1>,
                 </div>
 
                 <div class="external-link">
-                    <a class="btn" href="https://arxiv.org/abs/2310.16818" role="button" target="_blank">
-                        <i class="ai ai-arxiv"></i> Arxiv </a>
-                    <a class="btn" href="paper/Paper_high_res.pdf" role="button" target="_blank">
-                        <i class="fa fa-file-pdf"></i> Paper </a>
-                    <a class="btn" href="https://github.com/deepseek-ai/DreamCraft3D" role="button" target="_blank" disabled>
-                        <i class="fa-brands fa-github"></i> Code </a>
-                    <a class="btn btn-large btn-light" href="https://youtu.be/0FazXENkQms" role="button" target="_blank" disabled>
-                        <i class="fa-brands fa-youtube"></i> Video </a>
+					<span class="btn">  
+						<i class="ai ai-arxiv"></i> Arxiv   
+					</span>  
+					<span class="btn">  
+						<i class="fa fa-file-pdf"></i> Paper   
+					</span>  
+					<span class="btn" style="opacity: 0.5;">  
+						<i class="fa-brands fa-github"></i> Code   
+					</span>  
+					<span class="btn btn-large btn-light" style="opacity: 0.5;">  
+						<i class="fa-brands fa-youtube"></i> Video   
+					</span>
                 </div>
 
             </div>
@@ -89,18 +82,13 @@
         <div class="w-container grey_container">
             <h2 class="grey-heading_nerf">Abstract</h2>
             <p class="paragraph-3 nerf_text nerf_results_text">
-                We present DreamCraft3D, a hierarchical 3D content generation method that produces high-fidelity and coherent 3D objects. We tackle the problem by leveraging
-                a 2D reference image to guide the stages of geometry sculpting and texture boosting. A central focus of this work is to address the consistency issue that existing
-                works encounter. To sculpt geometries that render coherently, we perform score
-                distillation sampling via a view-dependent diffusion model. This 3D prior, alongside several training strategies, prioritizes the geometry consistency but compromises the texture fidelity. 
-                We further propose <b style="color: rgb(124, 196, 245);">Bootstrapped Score Distillation (BSD)</b> to
-                specifically boost the texture. We train a personalized diffusion model, Dreambooth, on the augmented renderings of the scene, imbuing it with 3D knowledge
-                of the scene being optimized. The score distillation from this 3D-aware diffusion prior provides view-consistent guidance for the scene. Notably, through an
-                alternating optimization of the diffusion prior and 3D scene representation, we
-                achieve mutually reinforcing improvements: the optimized 3D scene aids in training the scene-specific diffusion model, which offers increasingly view-consistent
-                guidance for 3D optimization. The optimization is thus bootstrapped and leads
-                to substantial texture boosting. With tailored 3D priors throughout the hierarchical generation, DreamCraft3D generates coherent 3D objects with photorealistic
-                renderings, advancing the state-of-the-art in 3D content generation.
+                Recent diffusion-based Single-image 3D portrait generation methods typically employ 2D diffusion models to provide multi-view knowledge, which is then distilled into 3D representations.
+				However, these methods usually struggle to produce high-fidelity 3D models, frequently yielding excessively blurred textures.
+				We attribute this issue to the insufficient consideration of cross-view consistency during the diffusion process, resulting in significant disparities between different views and ultimately leading to blurred 3D representations. 
+				In this paper, we address this issue by comprehensively exploiting multi-view priors in both the conditioning and diffusion procedures to produce consistent, finely textured portraits.    
+				From the conditioning standpoint, we propose a Hybrid Priors Diffsion model, which explicitly and implicitly incorporates multi-view priors as conditions to enhance the status consistency of the generated multi-view portraits.
+				From the diffusion perspective, considering the significant impact of the diffusion noise distribution on detailed texture generation, we propose a Multi-View Noise Resamplig Strategy integrated within the optimization process leveraging cross-view priors to enhance representation consistency. 
+				Extensive experiments demonstrate that our method can produce 3D portraits with accurate geometry and fine-grained textures from a single image.
                 <br>
                 <!-- <img  src="assets/images/overview.png"> -->
             </p>
